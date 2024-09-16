@@ -1,11 +1,12 @@
-from fastapi import FastAPI
-from fastapi.openapi.models import RequestBody
+from fastapi import FastAPI, Request
 
 app = FastAPI()
 
 @app.post("/arr")
-def arr(list: RequestBody):
-    print(list)
+async def arr(req: Request):
+    body = await req.json()
+    return body
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}

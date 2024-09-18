@@ -58,3 +58,18 @@ def exercise6(body: exercises_dtos.ListOfTen):
     return {
         "avgInList": False,
     }
+
+@app.post("/sum-digits")
+def exercise7(body: exercises_dtos.ListOfTen):
+    max = 0
+    pos = 0
+    for i in range(len(body.list)):
+        digitSum = utils_functions.sumDigits(body.list[i])
+        if digitSum > max:
+            max = digitSum
+            pos = i
+
+    return {
+        "maxSumDigit": max,
+        "pos": pos
+    }

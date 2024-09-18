@@ -56,3 +56,12 @@ def avgList(arr: List[int]):
         sum += i
 
     return sum / len(arr)
+
+def sumDigits(num: int):
+    strNum = str(num)
+    sum = 0
+
+    for i in strNum:
+        sum += int(i)
+
+    return sum

@@ -37,3 +37,15 @@ def max_prime_num(arr: List[int]):
         'max': maxInList,
         'pos': pos
     }
+
+def getPrimesBetweenTwoNumbers(num1: int, num2: int):
+    arr: List[int] = []
+
+    for i in range(num1, num2):
+        if isPrime(i) and len(arr) < 10:
+            arr.append(i)
+
+    return arr
+
+def numberEndsIn4(num: int):
+    return num % 10 == 4

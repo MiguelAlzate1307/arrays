@@ -73,3 +73,15 @@ def exercise7(body: exercises_dtos.ListOfTen):
         "maxSumDigit": max,
         "pos": pos
     }
+
+@app.post("/list-factorial")
+def exercise8(body: exercises_dtos.ListOfTen):
+    arr: List[int] = []
+
+    for i in range(len(body.list)):
+        arr.append(utils_functions.factorial(body.list[i]))
+
+    return {
+        "factorials": arr,
+        "recivied": body.list
+    }

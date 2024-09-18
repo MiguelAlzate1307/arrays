@@ -29,3 +29,17 @@ def exercise4(body: exercises_dtos.ListOfTen):
             })
 
     return  arr
+
+@app.post("/repeated-max-number")
+def exercise5(body: exercises_dtos.ListOfTen):
+    response = utils_functions.max_num(body.list)
+
+    rep = 0
+    for i in range(len(body.list)):
+        if response["max"] == body.list[i]:
+            rep += 1
+
+    return {
+        "max": response["max"],
+        "rep": rep
+    }

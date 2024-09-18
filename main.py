@@ -43,3 +43,18 @@ def exercise5(body: exercises_dtos.ListOfTen):
         "max": response["max"],
         "rep": rep
     }
+
+@app.post("/avg-in-list")
+def exercise6(body: exercises_dtos.ListOfTen):
+    avg: int = round(utils_functions.avgList(body.list))
+
+    for i in body.list:
+        if i == avg:
+            return {
+                "avgInList": True,
+                "avg": avg
+            }
+
+    return {
+        "avgInList": False,
+    }

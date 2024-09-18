@@ -49,3 +49,10 @@ def getPrimesBetweenTwoNumbers(num1: int, num2: int):
 
 def numberEndsIn4(num: int):
     return num % 10 == 4
+
+def avgList(arr: List[int]):
+    sum = 0
+    for i in arr:
+        sum += i
+
+    return sum / len(arr)
